@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+  --color: #1e1e1f;
+  --color-header: #f4efec;
+  --color-text: #cdc6c3;
+  --gallery-gap: calc(var(--index) * 10);
+}
+
+@font-face {
+  font-family: raleway-c;
+  src: url("./fonts/raleway-regular.woff2");
+}
+@font-face {
+  font-family: outfit-c;
+  src: url("./fonts/outfit-regular.woff2");
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: outfit-c;
+}
+body {
+  background: url("./img/bg.jpg");
+  color: #fafafa;
+  font-family: raleway-c;
+  overflow-x: hidden;
+}
+.hero {
+  width: calc(var(--index) * 36);
+  position: absolute;
+  top: 8vh;
+  left: 37vw;
+  z-index: -1;
+}
+.container {
+  padding: 0 7vw;
+}
+
+.main-header {
+  height: 100vh;
+}
+.main-title {
+  font-size: calc(var(--index) * 8);
+  position: absolute;
+  width: min-content;
+  bottom: 12vh;
+  line-height: 0.9;
+}
+.gallery {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: calc(var(--index) * 8) 0;
+}
+.gallery > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gallery__left {
+  margin-top: calc(var(--gallery-gap) * 2.5);
+}
+
+.gallery__item {
+  max-width: calc(var(--index) * 21);
+  margin-bottom: var(--gallery-gap);
+  max-height: 180vh;
+  border-radius: 8px;
+}
+.gallery__right .gallery__item {
+  margin: 0;
+  margin-top: var(--gallery-gap);
+}
+.text-block__h {
+  color: var(--color-header);
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-block__p {
+  color: var(--color-text);
+  line-height: 1.75rem;
+}
+
+/* will-change */
+/* запрос аппаратных ресурсов на динамические изменения (раскрыть все блоки в консоле, 
+листать страницу и смотреть что изменяется, брать классы этих элементов   */
+/* где идут динамические данные запрашиваем больше аппаратных ресурсов для transform */
+/* чтобы не тормозила анимация */
+.content,
+.hero,
+.main-header,
+.gallery__left,
+.gallery__right {
+  will-change: transform;
+}
